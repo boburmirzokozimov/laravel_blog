@@ -1,0 +1,17 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#7250
+    [34mall[39m: [
+      [34;4mApp\Modules\Role\Model\RoleAbility[39;24m {#7248
+        [34mrole_id[39m: [35m1[39m,
+        [34mability[39m: "[32medit[39m",
+        [34mcreated_at[39m: "[32m2023-05-03 10:42:03[39m",
+        [34mupdated_at[39m: "[32m2023-05-03 10:42:04[39m",
+      },
+      [34;4mApp\Modules\Role\Model\RoleAbility[39;24m {#7247
+        [34mrole_id[39m: [35m1[39m,
+        [34mability[39m: "[32mview[39m",
+        [34mcreated_at[39m: "[32m2023-05-03 10:42:01[39m",
+        [34mupdated_at[39m: "[32m2023-05-03 10:42:02[39m",
+      },
+    ],
+  }
+
