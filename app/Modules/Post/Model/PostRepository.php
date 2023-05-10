@@ -18,6 +18,12 @@ class PostRepository
             ->where('author_id', $user->id);
     }
 
+    public function getPostsOfUserAndFriends(array $ids): Collection
+    {
+        return Post::all()->sortBy('created_at')
+            ->whereIn('author_id', $ids);
+    }
+
     public function getPost(string $post): Post
     {
         return Post::find($post);

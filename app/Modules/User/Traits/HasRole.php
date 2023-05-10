@@ -2,8 +2,6 @@
 
 namespace App\Modules\User\Traits;
 
-use App\Modules\User\Model\User;
-
 trait HasRole
 {
     public const ROLE_ADMIN = 'admin';
@@ -19,10 +17,18 @@ trait HasRole
         ];
     }
 
-    public function isAdmin(User $user): bool
+    public function isAdmin(): bool
     {
-        return $this->role = $user->role;
+        return $this->role = self::ROLE_ADMIN;
     }
 
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
 
+    public function isRoleEqual(string $role): bool
+    {
+        return $this->role == $role;
+    }
 }

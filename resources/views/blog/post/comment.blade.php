@@ -6,7 +6,6 @@
                     Comments
                 </div>
                 <div class="card-body p-4">
-
                     @foreach($comments as $comment)
                         <div class="col-12 d-flex align-items-center position-relative">
                             <div class="col-1">
@@ -14,7 +13,14 @@
                                      style="height: 40px;width: 40px; position: relative" alt="">
                             </div>
                             <div class="px-4 col-10" style="flex-basis: auto">
-                                <span>{{$comment->comment}}</span>
+                                <span>
+                                    <p>
+                                    {{$comment->comment}}
+                                    </p>
+                                    <span class="opacity-25">
+                                        {{$comment->created_at->diffForHumans()}}
+                                    </span>
+                                </span>
                             </div>
                             <div class="col-1 h-auto d-flex justify-content-between align-items-center flex-column">
                                 <div>

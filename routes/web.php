@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Blog\Post\Comment\CommentController;
 use App\Http\Controllers\Blog\Post\PostController;
+use App\Http\Controllers\PartialsController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserFollowController;
@@ -25,10 +26,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::resource('/users', UserController::class);
+    Route::resource('/users', UserController::class)->middleware('admin');
     Route::post('/users/{user}/follow', UserFollowController::class)->name('user-follow.follow');
     Route::post('/users/{user}/role', UserRoleController::class)->name('user-role.role');
 
@@ -40,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/comment', [CommentController::class, 'store']);
     Route::put('/comment', [CommentController::class, 'update']);
     Route::delete('/comment', [CommentController::class, 'destroy']);
+
+    Route::get('/partials/users', [PartialsController::class, 'users']);
 });
 
 Auth::routes();

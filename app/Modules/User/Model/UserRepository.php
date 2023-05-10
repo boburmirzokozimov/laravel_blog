@@ -13,17 +13,17 @@ class UserRepository
 
     public function getUser(int $userId): User
     {
-        return User::find($userId);
+        return User::query()->find($userId);
     }
 
     public function getUserByEmail(string $email): User
     {
-        return User::where('email', $email)->first();
+        return User::query()->where('email', $email)->first();
     }
 
     public function existsByEmail(string $email): bool
     {
-        return User::where('email', $email)->count() > 0;
+        return User::query()->where('email', $email)->count() > 0;
     }
 
     public function remove(int $id): void

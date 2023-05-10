@@ -81,7 +81,7 @@ class User extends Authenticatable
         if ($this->nickname) {
             return $this->nickname;
         } else {
-            return $this->name . ' ' . $this->surname;
+            return $this->getFullName();
         }
     }
 
@@ -95,13 +95,5 @@ class User extends Authenticatable
         return $this->id === $user->id;
     }
 
-    public function setRole(string $role): void
-    {
-        $this->role = $role;
-    }
 
-    public function isRoleEqual(string $role): bool
-    {
-        return $this->role == $role;
-    }
 }

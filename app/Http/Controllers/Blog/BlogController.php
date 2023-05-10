@@ -53,7 +53,7 @@ class BlogController extends Controller
     {
         return view('blog.single', [
             'blog' => $my_blog,
-            'posts' => $my_blog->posts()->latest()->get()
+            'posts' => $my_blog->posts()->latest()->paginate(5)
         ]);
     }
 

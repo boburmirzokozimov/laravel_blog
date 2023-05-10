@@ -2,27 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
+use App\Modules\Post\Model\PostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function __construct(private PostRepository $repository)
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return Renderable
-     */
     public function index()
     {
-        return view('user.home');
+        $posts = $this->repository->getPostsOfUserAndFriends(Auth::user()->friends->pluck('id')->toArray());
+
+        return view('user.home', [
+            'posts' => $posts
+        ]);
     }
 }
