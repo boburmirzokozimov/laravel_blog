@@ -18,8 +18,10 @@ class UserController extends Controller
 
     public function index()
     {
+        $users = $this->repository->getUsers();
+
         return view('user.index', [
-            'cachedUsers' => $this->repository->getUsers()
+            'cachedUsers' => $users
         ]);
     }
 

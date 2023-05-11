@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Blog\Post\Comment\CommentController;
 use App\Http\Controllers\Blog\Post\PostController;
+use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\PartialsController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\User\UserController;
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comment', [CommentController::class, 'destroy']);
 
     Route::get('/partials/users', [PartialsController::class, 'users']);
+
+    Route::get('/jobs', ExampleController::class);
 });
 
 Auth::routes();

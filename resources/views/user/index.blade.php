@@ -13,8 +13,6 @@
                     <div class="card-body">
                         <include-fragment src="/partials/users">
                         </include-fragment>
-
-
                     </div>
                 </div>
             </div>

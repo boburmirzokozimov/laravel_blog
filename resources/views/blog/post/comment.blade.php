@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-1 h-auto d-flex justify-content-between align-items-center flex-column">
                                 <div>
-                                    <form method="post" class="" action="/comment">
+                                    <form method="post" class="" action="/comment" onsubmit="this.form.submit()">
                                         @csrf
                                         @method('delete')
                                         <input type="hidden" name="id" value="{{$comment->id}}">
